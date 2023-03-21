@@ -20,7 +20,6 @@ namespace papyrus_gui
             this.FormClosing += FormConfigure_FormClosing;
 
             #region DEFAULT VALUES
-            buttonBrowse2.Enabled = false;
             checkBoxHeightmap.Checked = true;
             comboBoxDimension.SelectedIndex = 0;
             comboBoxProfile.SelectedIndex = 0;
@@ -101,18 +100,12 @@ namespace papyrus_gui
         private void ButtonBrowse1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
+            openFile.InitialDirectory = "C:\\Program Files (x86)\\ModifiedCommand\\PapyrusCS";
+            openFile.RestoreDirectory = true;
+
             openFile.Filter = "papyrus.cs executable|papyruscs.exe";
             pathExeCS = BrowseExecutable(openFile, labelStatusExeCS);
 
-        }
-
-        private void ButtonBrowse2_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFile = new OpenFileDialog();
-            openFile.Filter = "papyrus.js executable|papyrusjs.exe";
-            pathExeJS = BrowseExecutable(openFile, labelStatusExeJS);
-
-            // FormMain.settings.config_js["executable"]
         }
 
         private void buttonCopyArgumentsCs_Click(object sender, EventArgs e)

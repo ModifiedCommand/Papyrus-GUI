@@ -32,9 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonBrowse1 = new System.Windows.Forms.Button();
             this.labelStatusExeCS = new System.Windows.Forms.Label();
-            this.labelStatusExeJS = new System.Windows.Forms.Label();
-            this.buttonBrowse2 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -71,8 +68,6 @@
             this.checkBoxHeightmap = new System.Windows.Forms.CheckBox();
             this.checkBoxLimitY = new System.Windows.Forms.CheckBox();
             this.labelLimitY = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -86,7 +81,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXzZ1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXzX2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXzX1)).BeginInit();
-            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -94,13 +88,13 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 13);
+            this.label1.Size = new System.Drawing.Size(118, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "PapyrusCS executable:";
+            this.label1.Text = "PapyrusCS Executable:";
             // 
             // buttonBrowse1
             // 
-            this.buttonBrowse1.Location = new System.Drawing.Point(122, 19);
+            this.buttonBrowse1.Location = new System.Drawing.Point(125, 19);
             this.buttonBrowse1.Name = "buttonBrowse1";
             this.buttonBrowse1.Size = new System.Drawing.Size(135, 20);
             this.buttonBrowse1.TabIndex = 3;
@@ -111,56 +105,25 @@
             // labelStatusExeCS
             // 
             this.labelStatusExeCS.AutoSize = true;
-            this.labelStatusExeCS.Location = new System.Drawing.Point(260, 23);
+            this.labelStatusExeCS.Location = new System.Drawing.Point(261, 23);
             this.labelStatusExeCS.Name = "labelStatusExeCS";
             this.labelStatusExeCS.Size = new System.Drawing.Size(54, 13);
             this.labelStatusExeCS.TabIndex = 4;
             this.labelStatusExeCS.Text = "Not found";
             // 
-            // labelStatusExeJS
-            // 
-            this.labelStatusExeJS.AutoSize = true;
-            this.labelStatusExeJS.Location = new System.Drawing.Point(260, 46);
-            this.labelStatusExeJS.Name = "labelStatusExeJS";
-            this.labelStatusExeJS.Size = new System.Drawing.Size(54, 13);
-            this.labelStatusExeJS.TabIndex = 9;
-            this.labelStatusExeJS.Text = "Not found";
-            // 
-            // buttonBrowse2
-            // 
-            this.buttonBrowse2.Location = new System.Drawing.Point(122, 43);
-            this.buttonBrowse2.Name = "buttonBrowse2";
-            this.buttonBrowse2.Size = new System.Drawing.Size(135, 20);
-            this.buttonBrowse2.TabIndex = 8;
-            this.buttonBrowse2.Text = "Browse";
-            this.buttonBrowse2.UseVisualStyleBackColor = true;
-            this.buttonBrowse2.Click += new System.EventHandler(this.ButtonBrowse2_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 46);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "papyrus.js executable:";
-            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.labelStatusExeJS);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.buttonBrowse2);
             this.groupBox1.Controls.Add(this.buttonBrowse1);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.labelStatusExeCS);
             this.groupBox1.Location = new System.Drawing.Point(10, 11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(320, 76);
+            this.groupBox1.Size = new System.Drawing.Size(320, 52);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "papyrus path configuration";
+            this.groupBox1.Text = "Papyrus Configuration";
             // 
             // groupBox2
             // 
@@ -168,12 +131,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.tabControl1);
-            this.groupBox2.Location = new System.Drawing.Point(10, 93);
+            this.groupBox2.Location = new System.Drawing.Point(12, 69);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(320, 371);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Additional arguments";
+            this.groupBox2.Text = "Additional Arguments";
             // 
             // tabControl1
             // 
@@ -181,7 +144,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(5, 18);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
@@ -575,41 +537,18 @@
             this.labelLimitY.TabIndex = 7;
             this.labelLimitY.Text = "Y:";
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Enabled = false;
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(301, 322);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "papyrus.js";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 6);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Not available...";
-            // 
             // FormConfigure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 481);
+            this.ClientSize = new System.Drawing.Size(340, 461);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(356, 520);
+            this.MaximumSize = new System.Drawing.Size(356, 500);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(356, 520);
+            this.MinimumSize = new System.Drawing.Size(356, 500);
             this.Name = "FormConfigure";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configure";
@@ -628,8 +567,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXzZ1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXzX2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXzX1)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -639,9 +576,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonBrowse1;
         private System.Windows.Forms.Label labelStatusExeCS;
-        private System.Windows.Forms.Label labelStatusExeJS;
-        private System.Windows.Forms.Button buttonBrowse2;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox checkBoxHeightmap;
@@ -654,8 +588,6 @@
         private System.Windows.Forms.TextBox textBoxHtmlFilename;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxDimension;

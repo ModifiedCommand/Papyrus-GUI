@@ -102,13 +102,13 @@ namespace papyrus_gui
             {
                 if (_status == ProcessingStatus.RENDERING)
                 {
-                    buttonConfigure.Enabled = false;
-                    buttonSelect1.Enabled = false;
-                    buttonSelect2.Enabled = false;
-                    comboBoxVersion.Enabled = false;
-                    textBoxWorld.ReadOnly = true;
-                    textBoxOutput.ReadOnly = true;
-                    buttonRender.Text = "STOP RENDERING!";
+                    //buttonConfigure.Enabled = false;
+                    //buttonSelect1.Enabled = false;
+                    //buttonSelect2.Enabled = false;
+                    //comboBoxVersion.Enabled = false;
+                    //textBoxWorld.ReadOnly = true;
+                    //textBoxOutput.ReadOnly = true;
+                    //buttonRender.Text = "STOP RENDERING!";
                 }
                 else
                 {
@@ -161,7 +161,7 @@ namespace papyrus_gui
 
         public void UpdateCheck(bool notifyLatest)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"https://api.github.com/repos/clarkx86/papyrus-gui/releases/latest");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"https://api.github.com/repos/ModifiedCommand/papyrus-gui/releases/latest");
             request.UserAgent = "papyrus-gui";
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -190,7 +190,7 @@ namespace papyrus_gui
                     {
                         if (MessageBox.Show(String.Format("A new update is available!\n\nLocal version: {0}\nRemote version: {1}\n\nDo you want to download the update? This will open a link in your browser.", FormatVersion(localVersion), FormatVersion(remoteVersion)), "Update available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
-                            Process.Start(@"https://github.com/clarkx86/papyrus-gui/releases/latest");
+                            Process.Start(@"https://github.com/ModifiedCommand/papyrus-gui/releases/latest");
                         }
                     } else if (notifyLatest)
                     {
@@ -229,6 +229,8 @@ namespace papyrus_gui
         private void ButtonSelect1_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowserInput = new FolderBrowserDialog();
+            folderBrowserInput.SelectedPath = "C:\\Users\\%username%\\AppData\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang\\minecraftWorlds";
+
 
             if (folderBrowserInput.ShowDialog() == DialogResult.OK)
             {
@@ -286,11 +288,12 @@ namespace papyrus_gui
                                     _renderProcess = new Process();
                                     _renderProcess.StartInfo.FileName = Settings.config_cs["executable"];
                                     _renderProcess.StartInfo.Arguments = Settings.GetArguments(PapyrusVariant.PAPYRUSCS, false, Path.GetFullPath(textBoxWorld.Text.ToString()), Path.GetFullPath(textBoxOutput.Text.ToString()));
-                                    _renderProcess.StartInfo.UseShellExecute = false;
-                                    _renderProcess.StartInfo.RedirectStandardOutput = true;
-                                    _renderProcess.StartInfo.CreateNoWindow = true;
+                                    _renderProcess.StartInfo.UseShellExecute = true;
+                                    _renderProcess.StartInfo.Verb = "runas";
+                                    _renderProcess.StartInfo.RedirectStandardOutput = false;
+                                    _renderProcess.StartInfo.CreateNoWindow = false;
                                     _renderProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                                    _renderProcess.StartInfo.RedirectStandardError = true;
+                                    _renderProcess.StartInfo.RedirectStandardError = false;
                                     _renderProcess.ErrorDataReceived += (object errorSender, DataReceivedEventArgs errorEventArgs) =>
                                     {
                                         MessageBox.Show(String.Format("An error occured while rendering your world!\n{0}", errorEventArgs.Data), "An error occurred", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -298,7 +301,7 @@ namespace papyrus_gui
                                     _renderProcess.OutputDataReceived += (object threadSender, DataReceivedEventArgs eArgs) => { this.UHandler?.Invoke(eArgs.Data); };
                                     
                                     _renderProcess.Start();
-                                    _renderProcess.BeginOutputReadLine();
+                                    //_renderProcess.BeginOutputReadLine();
 
                                     _renderProcess.WaitForExit();
 
@@ -385,35 +388,32 @@ namespace papyrus_gui
 
         private void AboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(String.Format("papyrus.gui version {0} build {1} by clarkx86 & DeepBlue", AppVersion, Assembly.GetExecutingAssembly().GetName().Version.Build), "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(String.Format("papyrus-gui version {0} by ModifiedCommand", AppVersion, Assembly.GetExecutingAssembly().GetName().Version.Build), "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void checkBoxEnableConsoleOutput_CheckedChanged(object sender, EventArgs e)
         {
-            richTextBoxConsoleOutput.Enabled = checkBoxEnableConsoleOutput.Checked;
+            //richTextBoxConsoleOutput.Enabled = checkBoxEnableConsoleOutput.Checked;
 
-            switch (checkBoxEnableConsoleOutput.Checked)
-            {
-                case false:
-                    richTextBoxConsoleOutput.Enabled = false;
-                    richTextBoxConsoleOutput.Text = "Console output disabled";
-                    break;
+            //switch (checkBoxEnableConsoleOutput.Checked)
+            //{
+            //    case false:
+            //        richTextBoxConsoleOutput.Enabled = false;
+            //        richTextBoxConsoleOutput.Text = "Console output disabled";
+            //        break;
 
-                case true:
-                    richTextBoxConsoleOutput.Enabled = true;
-                    richTextBoxConsoleOutput.Lines = _logContent.Lines;
-                    break;
-            }
+            //    case true:
+            //        richTextBoxConsoleOutput.Enabled = true;
+            //        richTextBoxConsoleOutput.Lines = _logContent.Lines;
+            //        break;
+            //}
+            richTextBoxConsoleOutput.Enabled = false;
+            richTextBoxConsoleOutput.Text = "Console output disabled";
         }
 
         private void papyrusCSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PromptOpenLink(@"https://github.com/mjungnickel18/papyruscs/releases/latest");
-        }
-
-        private void papyrusjsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PromptOpenLink(@"https://github.com/clarkx86/papyrusjs/releases/latest");
+            PromptOpenLink(@"https://github.com/ModifiedCommand/PapyrusCS/releases/latest");
         }
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -429,6 +429,16 @@ namespace papyrus_gui
         private string FormatVersion(Version version)
         {
             return String.Format("{0}.{1}.{2}", version.Major, version.Minor, version.Revision);
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

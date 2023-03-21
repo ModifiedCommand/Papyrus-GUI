@@ -35,7 +35,6 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getPapyrusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.papyrusCSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.papyrusjsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.discordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,8 +105,7 @@
             // getPapyrusToolStripMenuItem
             // 
             this.getPapyrusToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.papyrusCSToolStripMenuItem,
-            this.papyrusjsToolStripMenuItem});
+            this.papyrusCSToolStripMenuItem});
             this.getPapyrusToolStripMenuItem.Name = "getPapyrusToolStripMenuItem";
             this.getPapyrusToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.getPapyrusToolStripMenuItem.Text = "Get papyrus";
@@ -119,15 +117,9 @@
             this.papyrusCSToolStripMenuItem.Text = "PapyrusCS";
             this.papyrusCSToolStripMenuItem.Click += new System.EventHandler(this.papyrusCSToolStripMenuItem_Click);
             // 
-            // papyrusjsToolStripMenuItem
-            // 
-            this.papyrusjsToolStripMenuItem.Name = "papyrusjsToolStripMenuItem";
-            this.papyrusjsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.papyrusjsToolStripMenuItem.Text = "papyrus.js";
-            this.papyrusjsToolStripMenuItem.Click += new System.EventHandler(this.papyrusjsToolStripMenuItem_Click);
-            // 
             // discordToolStripMenuItem
             // 
+            this.discordToolStripMenuItem.Enabled = false;
             this.discordToolStripMenuItem.Name = "discordToolStripMenuItem";
             this.discordToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.discordToolStripMenuItem.Text = "Discord";
@@ -157,9 +149,10 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.Size = new System.Drawing.Size(86, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "papyrus version:";
+            this.label1.Text = "Papyrus Version:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // comboBoxVersion
             // 
@@ -250,7 +243,7 @@
             // 
             this.checkBoxEnableConsoleOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxEnableConsoleOutput.AutoSize = true;
-            this.checkBoxEnableConsoleOutput.Checked = true;
+            this.checkBoxEnableConsoleOutput.Checked = false;
             this.checkBoxEnableConsoleOutput.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxEnableConsoleOutput.Location = new System.Drawing.Point(6, 365);
             this.checkBoxEnableConsoleOutput.Name = "checkBoxEnableConsoleOutput";
@@ -272,7 +265,7 @@
             this.richTextBoxConsoleOutput.ReadOnly = true;
             this.richTextBoxConsoleOutput.Size = new System.Drawing.Size(748, 339);
             this.richTextBoxConsoleOutput.TabIndex = 0;
-            this.richTextBoxConsoleOutput.Text = "";
+            this.richTextBoxConsoleOutput.Text = "Disabled";
             // 
             // buttonRender
             // 
@@ -343,7 +336,8 @@
             this.MinimumSize = new System.Drawing.Size(400, 300);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "papyrus.gui";
+            this.Text = "papyrus-gui";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.groupBox.ResumeLayout(false);
@@ -382,7 +376,6 @@
         private System.Windows.Forms.ToolStripStatusLabel statusLabelTag;
         private System.Windows.Forms.ToolStripMenuItem getPapyrusToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem papyrusCSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem papyrusjsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
     }
 }
